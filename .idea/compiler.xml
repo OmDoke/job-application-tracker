@@ -11,11 +11,13 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar" />
         </processorPath>
         <module name="jobTracker" />
+        <module name="JOB-APPLICATION-TRACKER" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="JOB-APPLICATION-TRACKER" options="-parameters" />
       <module name="jobTracker" options="-parameters" />
     </option>
   </component>
