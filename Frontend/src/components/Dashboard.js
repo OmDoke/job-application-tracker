@@ -9,7 +9,7 @@ function Dashboard() {
   const navigate = useNavigate();
 
   const fetchApplications = async () => {
-    const res = await axios.get(`/jobs/${user.id}`);
+    const res = await axios.get(`http://localhost:8888/api/companies/2`);
     setApplications(res.data);
   };
 

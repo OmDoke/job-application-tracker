@@ -13,6 +13,7 @@ import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("api/companies")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class CompanyController {
 
     @Autowired
@@ -28,6 +29,19 @@ public class CompanyController {
     public ResponseEntity<List<Company>> getCompanyByUserId(@PathVariable Long userId){
         List<Company> companyList= companyService.getCompaniesByUserId(userId);
                 return ResponseEntity.ok(companyList);
+    }
+
+    @GetMapping("/company/{companyId}")
+    public  ResponseEntity<Company>getCompanyById(@PathVariable Long companyId){
+        try {
+            Company company=companyService.getCompanyById(companyId);
+            return ResponseEntity.ok(company);
+        }catch (NoSuchElementException e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+
+        }
     }
 
     @PostMapping("/{userId}")

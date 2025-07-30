@@ -9,14 +9,14 @@ function EditPage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get(`/jobs/id/${id}`);
+      const res = await axios.get(`http://localhost:8888/api/companies/company/${id}`);
       setForm(res.data);
     };
     fetchData();
   }, [id]);
 
   const updateJob = async () => {
-    await axios.put(`/jobs/${id}`, form);
+    await axios.put(`http://localhost:8888/api/companies/user/2/company/${id}`, form);
     navigate('/dashboard');
   };
 
