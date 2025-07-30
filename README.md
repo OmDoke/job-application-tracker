@@ -4,16 +4,16 @@ This project is a **Job Application Tracker** designed to help job seekers effic
 
 ## Table of Contents
 
-  - [Features](https://www.google.com/search?q=%23features)
-  - [Technologies Used](https://www.google.com/search?q=%23technologies-used)
-  - [Getting Started](https://www.google.com/search?q=%23getting-started)
-      - [Prerequisites](https://www.google.com/search?q=%23prerequisites)
-      - [Installation](https://www.google.com/search?q=%23installation)
-      - [Running the Application](https://www.google.com/search?q=%23running-the-application)
-  - [Usage](https://www.google.com/search?q=%23usage)
-  - [Contributing](https://www.google.com/search?q=%23contributing)
-  - [License](https://www.google.com/search?q=%23license)
-  - [Contact](https://www.google.com/search?q=%23contact)
+  - [Features](#features)
+  - [Technologies Used](#technologies-used)
+  - [Getting Started](#getting-started)
+      - [Prerequisites](#prerequisites)
+      - [Installation](#installation)
+      - [Running the Application](#running-the-application)
+  - [Usage](#usage)
+  - [Contributing](#contributing)
+  - [License](#license)
+  - [Contact](#contact)
 
 ## Features
 
@@ -21,12 +21,10 @@ This application offers a range of features to streamline your job hunting:
 
   * **Application Tracking:** Easily add and manage job applications with details such as company name, job title, application date, and job link.
   * **Status Management:** Update the status of each application (e.g., Applied, Interview Scheduled, Offer Received, Rejected, Follow-up).
-  * **Reminders:** Set follow-up reminders for applications or interview dates to ensure timely actions.
+  
   * **Dashboard Overview:** A clear, intuitive dashboard to visualize your job search progress and current application statuses.
-  * **Detailed Records:** Store additional information like recruiter contacts, notes from interviews, salary expectations, and job descriptions.
-  * **Search and Filter:** Quickly find specific applications using search and filtering options.
-  * **(Optional) Resume/Cover Letter Management:** (If applicable) Ability to associate specific resume or cover letter versions with applications.
-  * **(Optional) Data Visualization:** (If applicable) Charts or graphs to show application trends or success rates.
+
+  * ** Data Visualization:** (If applicable) Charts or graphs to show application trends or success rates.
 
 ## Technologies Used
 
@@ -34,16 +32,15 @@ This project is built using:
 
   * **Frontend:**
       * [**HTML5**](https://developer.mozilla.org/en-US/docs/Web/HTML)
-      * [**CSS3**](https://developer.mozilla.org/en-US/docs/Web/CSS) (Possibly with frameworks like [Bootstrap](https://getbootstrap.com/) or [Tailwind CSS](https://tailwindcss.com/))
-      * [**JavaScript**](https://developer.mozilla.org/en-US/docs/Web/JavaScript) (Possibly with libraries/frameworks like [React](https://react.dev/), [Vue.js](https://vuejs.org/), or [Angular](https://angular.io/))
+      * [**CSS3**](https://developer.mozilla.org/en-US/docs/Web/CSS) (Possibly with frameworks like 
+      * [**JavaScript**](https://developer.mozilla.org/en-US/docs/Web/JavaScript) (Possibly with libraries/frameworks like [React](https://react.dev/)
   * **Backend:**
-      * [**Node.js**](https://nodejs.org/) (with [Express.js](https://expressjs.com/) or similar framework) OR
-      * [**Python**](https://www.python.org/) (with [Flask](https://flask.palletsprojects.com/) or [Django](https://www.djangoproject.com/)) OR
+     
       * [**Java**](https://www.java.com/) (with [Spring Boot](https://spring.io/projects/spring-boot))
-      * *(Please replace this with the actual backend language/framework used)*
+     
   * **Database:**
-      * [**MySQL**](https://www.mysql.com/) OR [**PostgreSQL**](https://www.postgresql.org/) OR [**MongoDB**](https://www.mongodb.com/) OR [**SQLite**](https://www.sqlite.org/index.html)
-      * *(Please replace this with the actual database used)*
+      * [**MySQL**](https://www.mysql.com/)   
+     
   * **Other Tools/Libraries:**
       * *(List any other significant libraries, APIs, or tools like Chart.js, Authentication libraries, etc.)*
 
@@ -55,10 +52,10 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 Before you begin, ensure you have the following installed:
 
-  * **Node.js** (if using JavaScript/Node.js backend) OR **Python** (if using Python backend) OR **Java Development Kit (JDK)** (if using Java backend)
-  * **npm** or **yarn** (for frontend dependencies)
+  **Java Development Kit (JDK)** (if using Java backend)
+  * **npm** 
   * **Git**
-  * *(Specify any database server or other specific tools needed, e.g., Docker if containerized)*
+
 
 ### Installation
 
@@ -97,23 +94,20 @@ Before you begin, ensure you have the following installed:
 1.  **Start the Backend Server:**
 
     ```bash
-    cd backend # Or the path to your backend directory
-    # Depending on your backend technology:
-    # For Node.js: npm start # or node server.js
-    # For Python: python app.py # or flask run / django runserver
-    # For Java: mvn spring-boot:run # or ./gradlew bootRun
+    # for SpringBoot: mvn install clean
+    # For Java: mvn spring-boot:run 
     ```
 
-    The backend will typically run on `http://localhost:XXXX` (e.g., `http://localhost:5000` or `http://localhost:8080`).
+    The backend will typically run on `http://localhost:8888` 
 
 2.  **Start the Frontend Development Server:**
 
     ```bash
-    cd frontend # Or the path to your frontend directory
-    npm run dev # or npm start / yarn dev / yarn start
+    cd frontend 
+    npm start  
     ```
 
-    The frontend will typically open in your browser at `http://localhost:YYYY` (e.g., `http://localhost:3000`).
+    The frontend will typically open in your browser at `http://localhost:3000`.
 
 ## Usage
 
@@ -122,10 +116,10 @@ Once the application is running:
 1.  **Register/Login:** Create a new user account or log in if you already have one.
 2.  **Add Applications:** Use the "Add New Application" feature to input details for each job you apply to.
 3.  **Update Status:** Change the status of your applications as you progress through the hiring process.
-4.  **Set Reminders:** Add reminders for follow-ups or upcoming interviews.
-5.  **View Dashboard:** Monitor your overall job search progress and quickly see pending actions.
 
-*(Add more specific usage instructions if known, e.g., "Click on an application card to view/edit details.")*
+4.  **View Dashboard:** Monitor your overall job search progress and quickly see pending actions.
+
+
 
 ## Contributing
 
