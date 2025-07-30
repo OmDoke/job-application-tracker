@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/users")
@@ -24,8 +25,14 @@ public class UserController {
 
     @PostMapping
     ResponseEntity<User> saveUser(@RequestBody User user) {
-        User user1 = userService.saveUser(user);
-        return ResponseEntity.ok(user1);
+     try{
+         User user1 = userService.saveUser(user);
+         return ResponseEntity.ok(user1);
+     }catch (Exception e){
+         System.out.println("ERROR " + e.getMessage());
+         e.printStackTrace();
+         return ResponseEntity.internalServerError().build();
+     }
     }
 
     @GetMapping("/{userId}")
@@ -35,7 +42,7 @@ public class UserController {
     }
 
     @GetMapping("/{emailId}")
-    ResponseEntity<User> getUserById(@PathVariable String emailId) {
+    ResponseEntity<User> getUserByEmailId(@PathVariable String emailId) {
         User user = userService.getUserByemail(emailId);
         return ResponseEntity.ok(user);
     }
@@ -45,6 +52,39 @@ public class UserController {
         User user = userService.getUserById(userId);
         userService.deleteUserById(userId);
         return ResponseEntity.ok(user);
+    }
+
+    @PostMapping("/login")
+    ResponseEntity<?> login(@RequestBody User user) {
+        String emailId = user.getEmailId();
+        String password = user.getPassword();
+
+        try {
+            User existingUser = userService.getUserByemail(emailId);
+            System.out.println("ERROR " + existingUser);
+
+            if (existingUser != null && existingUser.getPassword().equals(password)) {
+                return ResponseEntity.ok()
+                        .body(Map.of(
+                                "success", true,
+                                "user", existingUser
+                        ));
+            }
+            return ResponseEntity.ok()
+                    .body(Map.of(
+                            "success", false,
+                            "message", "Invalid credentials"
+                    ));
+
+        } catch (Exception e) {
+            System.out.println("ERROR " + e.getMessage());
+            e.printStackTrace();
+            return ResponseEntity.ok()
+                    .body(Map.of(
+                            "success", false,
+                            "message", "Server error occurred"
+                    ));
+        }
     }
 
 }

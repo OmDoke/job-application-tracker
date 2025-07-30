@@ -3,14 +3,15 @@ import axios from '../services/axios';
 import { useNavigate } from 'react-router-dom';
 
 function HomePage() {
-  const [email, setEmail] = useState('');
+  const [emailId, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
   const login = async () => {
     try {
-      const res = await axios.post('/login', { email, password });
-      if (res.data.success) {
+      const res = await axios.post(`http://localhost:8888/api/users/login`, { emailId, password });
+      console.log(res);
+      if (res.data.success === true) {
         localStorage.setItem('user', JSON.stringify(res.data.user));
         navigate('/dashboard');
       } else {

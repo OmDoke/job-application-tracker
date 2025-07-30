@@ -4,13 +4,13 @@ import { useNavigate } from 'react-router-dom';
 
 function RegisterPage() {
   const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [emailId, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
   const register = async () => {
     try {
-      await axios.post('/register', { name, email, password });
+      await axios.post(`http://localhost:8888/api/users`, { name, emailId, password });
       alert('Registered successfully');
       navigate('/');
     } catch (err) {

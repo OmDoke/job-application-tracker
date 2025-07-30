@@ -9,18 +9,18 @@ function Dashboard() {
   const navigate = useNavigate();
 
   const fetchApplications = async () => {
-    const res = await axios.get(`http://localhost:8888/api/companies/2`);
+    const res = await axios.get(`http://localhost:8888/api/companies/${user.id}`);
     setApplications(res.data);
   };
 
   const addJob = async () => {
-    await axios.post('/jobs', { ...form, userId: user.id });
+    await axios.post(`http://localhost:8888/api/companies/${user.id}`, { ...form, userId: user.id });
     setForm({ company: '', position: '', status: '', date: '' });
     fetchApplications();
   };
 
   const deleteJob = async (id) => {
-    await axios.delete(`/jobs/${id}`);
+    await axios.delete(`http://localhost:8888/api/companies/${user.id}`);
     fetchApplications();
   };
 
