@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from '../services/axios';
 
 function EditPage() {
+   const user = JSON.parse(localStorage.getItem('user')) || {};
   const { id } = useParams();
   const navigate = useNavigate();
   const [form, setForm] = useState({ company: '', position: '', status: '', date: '' });
@@ -16,7 +17,7 @@ function EditPage() {
   }, [id]);
 
   const updateJob = async () => {
-    await axios.put(`http://localhost:8888/api/companies/user/2/company/${id}`, form);
+    await axios.put(`http://localhost:8888/api/companies/user/${user.id}/company/${id}`, form);
     navigate('/dashboard');
   };
 

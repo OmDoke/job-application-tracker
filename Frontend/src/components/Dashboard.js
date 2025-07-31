@@ -218,11 +218,7 @@ const dashboardStyles = `
     }
 `;
 
-/**
- * Dashboard Component
- * Manages job application data: fetching, adding, and deleting.
- * Displays applications in a table with styling.
- */
+
 function Dashboard() {
   // State to hold the list of job applications
   const [applications, setApplications] = useState([]);
@@ -245,21 +241,13 @@ function Dashboard() {
     };
   }, []); // Empty dependency array ensures this runs only once on mount
 
-  /**
-   * Helper function to format a date string into a short month and day format (e.g., "Jul 25").
-   * @param {string} dateString - The date string to format.
-   * @returns {string} The formatted date string or an empty string if input is invalid.
-   */
+
   const formatDate = (dateString) => {
     if (!dateString) return '';
     const options = { month: 'short', day: 'numeric' };
     return new Date(dateString).toLocaleDateString('en-US', options);
   };
 
-  /**
-   * Fetches job applications for the current user from the backend.
-   * Redirects to login if user ID is not found.
-   */
   const fetchApplications = async () => {
     try {
       if (!user.id) {
@@ -272,15 +260,10 @@ function Dashboard() {
       setApplications(res.data);
     } catch (error) {
       console.error("Error fetching applications:", error);
-      // TODO: Implement user-friendly error message display (e.g., using a state variable for alerts)
+
     }
   };
 
-  /**
-   * Adds a new job application to the backend.
-   * Resets the form and re-fetches applications upon successful addition.
-   * Redirects to login if user ID is not found.
-   */
   const addJob = async () => {
     try {
       if (!user.id) {
@@ -299,12 +282,6 @@ function Dashboard() {
     }
   };
 
-  /**
-   * Deletes a job application from the backend by its ID.
-   * Re-fetches applications upon successful deletion.
-   * Redirects to login if user ID is not found.
-   * @param {string} id - The ID of the application to delete.
-   */
   const deleteJob = async (id) => {
     try {
       if (!user.id) {
@@ -313,7 +290,7 @@ function Dashboard() {
         return;
       }
       // Using your actual axios instance to delete data from the backend
-      await axios.delete(`http://localhost:8888/api/companies/${user.id}/${id}`);
+      await axios.delete(`http://localhost:8888/api/companies/${id}`);
       fetchApplications(); // Re-fetch applications after deletion
     } catch (error) {
       console.error("Error deleting job:", error);
@@ -321,11 +298,7 @@ function Dashboard() {
     }
   };
 
-  /**
-   * useEffect hook to run once on component mount.
-   * Checks for user authentication and fetches applications if authenticated.
-   * Redirects to login if no user ID is found.
-   */
+
   useEffect(() => {
     if (!user.id) {
       console.log("No user ID found, redirecting to login.");

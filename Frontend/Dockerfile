@@ -1,32 +1,19 @@
-# Build stage
-FROM node:18-alpine as build
+# Fetching the latest node image on alpine linux
+FROM node:alpine AS development
 
-# Set working directory
-WORKDIR /app
+# Declaring env
+ENV NODE_ENV development
 
-# Copy package files
-COPY package*.json ./
+# Setting up the work directory
+WORKDIR /react-app
 
-# Install dependencies
-RUN npm ci --only=production
+# Installing dependencies
+COPY ./package*.json /react-app
 
-# Copy source code
+RUN npm install
+
+# Copying all the files in our project
 COPY . .
 
-# Build the application
-RUN npm run build
-
-# Production stage
-FROM nginx:alpine
-
-# Copy built app from build stage
-COPY --from=build /app/build /usr/share/nginx/html
-
-# Copy nginx configuration
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Expose port 80
-EXPOSE 80
-
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Starting our application
+CMD ["npm","start"]
