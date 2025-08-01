@@ -13,16 +13,8 @@ public interface CompanyRepo extends JpaRepository<Company, Long > {
 
     List<Company> findByUserId(Long userId);
 
-    // Returns Company directly, will be null if not found
-    Company findByCompany(String company);
-
-    // Returns void
-    void deleteByCompany(String company);
-
-    // Returns Company directly, will be null if not found
     Company findByIdAndUserId(Long companyId,Long userId );
 
-    // If you need filtering by status, you'd add a method like this:
-    // List<Company> findByUserIdAndStatus(Long userId, String status);
+
 
 }

@@ -58,6 +58,7 @@ public class CompanyController {
         return ResponseEntity.ok(company);
     }
 
+
     @PutMapping("/user/{userId}/company/{companyId}")
     public ResponseEntity<Company>updateCompanyresult(@PathVariable Long userId, @PathVariable Long companyId, @RequestBody Company updatedCompany){
 

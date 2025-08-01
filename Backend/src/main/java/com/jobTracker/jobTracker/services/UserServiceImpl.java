@@ -15,10 +15,6 @@ public class UserServiceImpl implements UserService{
     @Autowired
     private UserRepo userRepo;
 
-    //public UserServiceImpl(UserRepo userRepo){
-     //   this.userRepo=userRepo;
-    //}
-
     @Override
     public User saveUser(User user) {
         return userRepo.save(user);
@@ -45,7 +41,5 @@ public class UserServiceImpl implements UserService{
     public void deleteUserById(Long id) {
          userRepo.deleteById(id);
     }
-
-
 
 }

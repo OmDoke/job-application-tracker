@@ -19,7 +19,6 @@ public interface UserService {
 
     void deleteUserById(Long id);
 
-    //Optional<User> authenticateUser(String email, String password)
 
 
 
