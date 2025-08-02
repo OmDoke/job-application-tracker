@@ -9,16 +9,18 @@ body {
 .dashboard-page {
   display: flex;
   justify-content: center;
-  padding-top: 50px;
+  padding:10px;
+  width: 100vw;
+  min-height: 100vh;
 }
 
 .dashboard-container {
   background-color: #ffffff;
   border-radius: 6px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  width: 90%;
-  max-width: 1000px;
+  padding: 10px;
+  width: 100%;
+
   box-sizing: border-box;
 }
 
@@ -49,10 +51,9 @@ body {
   margin-bottom: 20px;
   width: 100%;
 }
-
 .input-field {
-  flex: 1 1 calc(33.33% - 15px);
-  min-width: 180px;
+  /*flex: 1 1 calc(33.33% - 15px);*/
+  /*min-width: 180px;*/
   padding: 8px;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -64,6 +65,16 @@ body {
   border-color: #007bff;
   outline: none;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.input-field-date{
+  flex: 1 1 calc(33.33% - 15px);
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size:15px;
+  background-color: #f0f0f0;
+
 }
 
 .add-job-button {
@@ -172,4 +183,22 @@ body {
   .input-field {
     flex: 1 1 100%;
   }
+
+
+}
+
+.handle-logout-button{
+   border-radius: 6px;
+   border: 1px solid #ffffff;
+   padding: 8px;
+   width: auto;
+   margin-top: 10px;
+   color: white;
+   background-color:#990000;
+
+  }
+.logout-section{
+   text-align: end;
+   margin-bottom: 20px;
+
 }

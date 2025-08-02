@@ -110,6 +110,7 @@ const HomePage = () => {
               tabIndex={0}
             >
               Don’t have an account?
+
             </p>
           </form>
 

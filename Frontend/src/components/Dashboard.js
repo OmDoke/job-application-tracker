@@ -67,10 +67,25 @@ function Dashboard() {
     }
   }, [user.id, navigate]);
 
+  const handleLogout = ()=> {
+   // clear user local storage data
+   localStorage.removeItem('user');
+   navigate('/')
+  }
+
+
   return (
     <div className="dashboard-page">
       <div className="dashboard-container">
         <h1 className="dashboard-main-title">Dashboard</h1>
+
+      <div className = "logout-section">
+       <button
+               onClick = {handleLogout}
+               className="handle-logout-button">
+               Logout
+               </button>
+      </div>
 
         <div className="add-job-section">
           <h2>Hi, {user.name || 'Guest'}! Add a New Job Application</h2>
@@ -93,9 +108,10 @@ function Dashboard() {
             onChange={(e) => setForm({ ...form, status: e.target.value })}
           />
           <input
-            className="input-field"
+            className="input-field-date"
             type="date"
             value={form.date}
+            placeholder="dd-mm-yyyy"
             onChange={(e) => setForm({ ...form, date: e.target.value })}
           />
           <button onClick={addJob} className="add-job-button">Add Job</button>
