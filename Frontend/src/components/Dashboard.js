@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
-import axios from '../services/axios'; // Import your actual axios instance
+import { useNavigate } from 'react-router-dom';
+import axios from '../services/axios';
 
 // Embedded CSS as a string
 const dashboardStyles = `
