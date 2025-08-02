@@ -3,6 +3,7 @@ package com.jobTracker.jobTracker.controllers;
 import com.jobTracker.jobTracker.entities.User;
 import com.jobTracker.jobTracker.services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,10 +25,20 @@ public class UserController {
     }
 
     @PostMapping
-    ResponseEntity<User> saveUser(@RequestBody User user) {
+    ResponseEntity<?> saveUser(@RequestBody User user) {
+
+        String emailId = user.getEmailId();
+
      try{
-         User user1 = userService.saveUser(user);
-         return ResponseEntity.ok(user1);
+         User existingUser= userService.getUserByemail(emailId);
+         if(existingUser == null){
+             User saveduser = userService.saveUser(user);
+             return ResponseEntity.ok(saveduser);
+         }else{
+             return ResponseEntity
+                     .status(HttpStatus.CONFLICT)
+                     .body("User with email " + emailId + " already exists ");
+         }
      }catch (Exception e){
          System.out.println("ERROR " + e.getMessage());
          e.printStackTrace();

@@ -27,24 +27,35 @@ const HomePage = () => {
   };
 
   // Register handler
-  const register = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.post(`http://localhost:8888/api/users`, { name, emailId, password });
-      alert('Registered successfully');
+ const register = async (e) => {
+   e.preventDefault();
+   try {
+     await axios.post(`http://localhost:8888/api/users`, {
+       name,
+       emailId,
+       password
+     });
 
-      // Clear fields
-      setName('');
-      setEmail('');
-      setPassword('');
+     alert('Registered successfully');
 
-      // Switch back to login
-      const container = document.querySelector('.container');
-      container?.classList.remove('sign-up-mode');
-    } catch (err) {
-      alert('Registration failed');
-    }
-  };
+     // Clear fields
+     setName('');
+     setEmail('');
+     setPassword('');
+
+     // Switch back to login
+     const container = document.querySelector('.container');
+     container?.classList.remove('sign-up-mode');
+   } catch (err) {
+     if (err.response && err.response.status === 409) {
+       alert('A user with this email ID already exists.');
+     } else {
+       alert('Registration failed. Please try again.');
+     }
+     console.error(err);
+   }
+ };
+
 
   useEffect(() => {
     const sign_in_btn = document.querySelector('#sign-in-btn');
