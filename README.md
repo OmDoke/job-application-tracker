@@ -61,7 +61,7 @@ Before you begin, ensure you have the following installed:
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/sagarghodke1204/JOB-APPLICATION-TRACKER.git
+    git clone https://github.com/OmDoke/job-application-tracker.git
     cd JOB-APPLICATION-TRACKER
     ```
 2.  **Install Frontend Dependencies:**
