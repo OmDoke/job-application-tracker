@@ -137,8 +137,4 @@ Contributions are welcome\! If you have suggestions for improvements or new feat
 This project is licensed under the [MIT License](https://www.google.com/search?q=LICENSE) - see the `LICENSE` file for details.
 *(Replace with actual license if different, or create a https://www.google.com/search?q=LICENSE file if it doesn't exist)*
 
-## Contact
 
-Sagar Ghodke - [https://github.com/sagarghodke1204](https://www.google.com/search?q=https://github.com/sagarghodke1204)
-
-Project Link: [https://github.com/sagarghodke1204/JOB-APPLICATION-TRACKER](https://github.com/sagarghodke1204/JOB-APPLICATION-TRACKER)
